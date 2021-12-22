@@ -1,0 +1,20 @@
+{
+  "name": "typescript-webpack-min",
+  "version": "1.0.0",
+  "description": "Minium install required for typescript using webpack to transpile to js for node",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config=webpack.config.js",
+    "run": "node ./dist/index.js"
+  },
+  "author": "Dan Whitney",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.2"
+  }
+}

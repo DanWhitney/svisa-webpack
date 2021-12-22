@@ -1,0 +1,9 @@
+# Git Ingore 
+
+# Dependencies
+/node_modules
+
+# Testing
+
+# Production
+/dist
