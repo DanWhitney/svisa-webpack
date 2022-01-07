@@ -17,11 +17,6 @@ export declare const agVisa: {
     viWaitOnEvent: import("ffi-napi").ForeignFunction<number, [number, number, number, ref.Pointer<number>, ref.Pointer<number>]>;
     viGetAttribute: import("ffi-napi").ForeignFunction<number, [number, number, ref.Pointer<number>]>;
 };
-export declare function viRead(viSession: number, count: number): {
-    status: number;
-    retBuff: string;
-    retCount: number;
-};
 export declare function visaQuery(visaAddress: string, queryString: string, callback: (status: number, returnBuffer: string) => void): void;
 export declare function visaAsyncQuery(visaAddress: string, queryString: string, callback: (status: number, returnBuffer: string) => void): void;
 export declare function visaQueryToPromise(visaAddress: string, queryString: string): Promise<string>;
