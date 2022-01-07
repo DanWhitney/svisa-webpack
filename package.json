@@ -1,5 +1,5 @@
 {
-  "name": "typescript-webpack-min",
+  "name": "svisa-webpack",
   "version": "1.0.0",
   "description": "Minium install required for typescript using webpack to transpile to js for node",
   "main": "index.js",
