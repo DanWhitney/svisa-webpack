@@ -9,6 +9,9 @@
   },
   "author": "Dan Whitney",
   "license": "ISC",
+  "files": [
+		"dist"
+	],
   "dependencies": {
     "@types/ffi-napi": "^4.0.5",
     "@types/ref-napi": "^3.0.4",

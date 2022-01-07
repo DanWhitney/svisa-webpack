@@ -67,18 +67,18 @@ export const agVisa = Library('./agvisa32', {
 // }
 
 // s
-export function viRead(viSession: number, count: number): { status: number, retBuff: string, retCount: number } {
+// export function viRead(viSession: number, count: number): { status: number, retBuff: string, retCount: number } {
 
-	let status: number = 1
-	let buff = ref.alloc(ViPBuf);
-	let retCount = ref.alloc(ViPUInt32);
-	status = agVisa.viRead(viSession, buff, count, retCount)
-	return {
-		status: status,
-		retBuff: buff.readCString().substring(0, retCount.readInt32LE()),
-		retCount: retCount.readInt32LE()
-	}
-}
+// 	let status: number = 1
+// 	let buff = ref.alloc(ViPBuf);
+// 	let retCount = ref.alloc(ViPUInt32);
+// 	status = agVisa.viRead(viSession, buff, count, retCount)
+// 	return {
+// 		status: status,
+// 		retBuff: buff.readCString().substring(0, retCount.readInt32LE()),
+// 		retCount: retCount.readInt32LE()
+// 	}
+// }
 
 // export function viClose(viObject: number): { status: number } {
 // 	let status = agVisa.viClose(viObject)
