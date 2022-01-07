@@ -2,16 +2,17 @@
   "name": "svisa-webpack",
   "version": "1.0.0",
   "description": "Minium install required for typescript using webpack to transpile to js for node",
-  "main": "index.js",
   "scripts": {
     "build": "webpack --config=webpack.config.js",
     "run": "node ./dist/index.js"
   },
   "author": "Dan Whitney",
   "license": "ISC",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-		"dist"
-	],
+    "dist"
+  ],
   "dependencies": {
     "@types/ffi-napi": "^4.0.5",
     "@types/ref-napi": "^3.0.4",
