@@ -19,6 +19,8 @@ export declare const ViSession: ref.Type<number>;
 export declare const ViEvent: ref.Type<number>;
 export declare const ViPEvent: ref.Type<ref.Pointer<number>>;
 export declare const ViAttr: ref.Type<number>;
+export declare const ViAttrState: ref.Type<number>;
+export declare const ViPAttrState: ref.Type<ref.Pointer<number>>;
 export declare const ViPSession: ref.Type<ref.Pointer<number>>;
 export declare const ViString: ref.Type<ref.Pointer<number>>;
 export declare const ViConstString: ref.Type<ref.Pointer<number>>;

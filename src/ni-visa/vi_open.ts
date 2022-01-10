@@ -24,6 +24,7 @@ export enum ViOpenErrorCode {
     VI_ERROR_RSRC_LOCKED = VI_ERROR + 0x3FFF000F, // Specified type of lock cannot be obtained because the resource is already locked with a lock type incompatible with the lock requested.
     VI_ERROR_RSRC_NFOUND = VI_ERROR + 0x3FFF0011, // Insufficient location information or resource not present in the system.
     VI_ERROR_SERVER_CERT = VI_ERROR + 0x3FFF00B0, // A secure connection could not be created due to the instrument certificate being invalid or untrusted. 
+    VI_ERROR_NCIC = VI_ERROR + 0x3FFF0060, //The interface associated with this session is not currently the controller in charge.
     VI_ERROR_TMO = VI_ERROR + 0x3FFF0015, // A session to the resource could not be obtained within the specified timeout period.
 }
 
@@ -43,9 +44,31 @@ export function viOpen(viSession: number, visa_resource: string, viAccessMode: n
             case ViOpenCompletionCode.VI_WARN_SERVER_CERT_UNTRUSTED: {
                 let session: number = bufferSession.readUInt32LE()
                 resolve({ status: status, session: session })
+                break
             }
+            case ViOpenErrorCode.VI_ERROR_ALLOC:
+            case ViOpenErrorCode.VI_ERROR_INTF_NUM_NCONFIG:
+            case ViOpenErrorCode.VI_ERROR_INV_ACC_MODE:
+            case ViOpenErrorCode.VI_ERROR_INV_RSRC_NAME:
+            case ViOpenErrorCode.VI_ERROR_INV_SESSION:
+            case ViOpenErrorCode.VI_ERROR_INV_OBJECT:
+            case ViOpenErrorCode.VI_ERROR_INV_PROT:
+            case ViOpenErrorCode.VI_ERROR_LIBRARY_NFOUND:
+            case ViOpenErrorCode.VI_ERROR_NPERMISSION:
+            case ViOpenErrorCode.VI_ERROR_NSUP_OPER:
+            case ViOpenErrorCode.VI_ERROR_RSRC_BUSY:
+            case ViOpenErrorCode.VI_ERROR_RSRC_LOCKED:
+            case ViOpenErrorCode.VI_ERROR_RSRC_NFOUND:
+            case ViOpenErrorCode.VI_ERROR_SERVER_CERT:
+            case ViOpenErrorCode.VI_ERROR_NCIC:
+            case ViOpenErrorCode.VI_ERROR_TMO:{
+                resolve({ status: status, session: -1 })
+                break
+            }
+
+
             default: {
-                reject(`viOpen Error: status: ${status}`)
+                reject(`ViOpen: Error: Status ${status}`)
             }
         }
     })

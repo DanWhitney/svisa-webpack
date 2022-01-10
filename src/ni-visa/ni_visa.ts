@@ -1,6 +1,6 @@
 import { platform, arch } from 'os'
 import { Library } from 'ffi-napi'
-import { ViAccessMode, ViAttr, ViEvent, ViEventFilter, ViEventType, ViFindList, ViObject, ViPBuf, ViPEvent, ViPEventType, ViPFindList, ViPJobId, ViPObject, ViPSession, ViPStatus, ViPUInt16, ViPUInt32, ViSession, ViStatus, ViUInt16, ViUInt32 } from './ni_visa_types'
+import { ViAccessMode, ViAttr, ViAttrState, ViEvent, ViEventFilter, ViEventType, ViFindList, ViObject, ViPAttrState, ViPBuf, ViPEvent, ViPEventType, ViPFindList, ViPJobId, ViPObject, ViPSession, ViPStatus, ViPUInt16, ViPUInt32, ViSession, ViStatus, ViUInt16, ViUInt32 } from './ni_visa_types'
 import ref, { readInt64LE } from 'ref-napi';
 
 import { NiVisaConstants } from './ni_visa_constants';
@@ -31,6 +31,9 @@ export const agVisa = Library('./agvisa32', {
 	'viParseRsrc': [ViStatus, [ViSession, 'string', ViPUInt16, ViPUInt16]],
 	'viParseRsrcEx': [ViStatus, [ViSession, 'string', ViPUInt16, ViPUInt16, 'string', 'string', 'string']],
 	'viOpen': [ViStatus, [ViSession, 'string', ViAccessMode, ViUInt32, ViPSession]],
+	// Get and Set Attributes
+	'viSetAttribute': [ViStatus,[ViSession, ViAttr, ViAttrState]],
+	'viGetAttribute': [ViStatus,[ViSession, ViAttr, ViPAttrState]],
 	// Resource Template Operations
 	'viClose': [ViStatus, [ViObject]],
 	// Basic I/O Operations`
@@ -45,7 +48,7 @@ export const agVisa = Library('./agvisa32', {
 	'viEnableEvent': [ViStatus, [ViSession, ViEventType, ViUInt16, ViEventFilter]],
 	'viDisableEvent': [ViStatus, [ViSession, ViEventType, ViUInt16]],
 	'viWaitOnEvent': [ViStatus, [ViSession, ViEventType, ViUInt32, ViPEventType, ViPEvent]],
-	'viGetAttribute': [ViStatus, [ViEvent, ViAttr, ViPObject]]
+
 
 })
 

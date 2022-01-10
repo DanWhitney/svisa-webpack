@@ -6,6 +6,8 @@ export declare const agVisa: {
     viParseRsrc: import("ffi-napi").ForeignFunction<number, [number, string | null, ref.Pointer<number>, ref.Pointer<number>]>;
     viParseRsrcEx: import("ffi-napi").ForeignFunction<number, [number, string | null, ref.Pointer<number>, ref.Pointer<number>, string | null, string | null, string | null]>;
     viOpen: import("ffi-napi").ForeignFunction<number, [number, string | null, number, number, ref.Pointer<number>]>;
+    viSetAttribute: import("ffi-napi").ForeignFunction<number, [number, number, number]>;
+    viGetAttribute: import("ffi-napi").ForeignFunction<number, [number, number, ref.Pointer<number>]>;
     viClose: import("ffi-napi").ForeignFunction<number, [number]>;
     viRead: import("ffi-napi").ForeignFunction<number, [number, ref.Pointer<number>, number, ref.Pointer<number>]>;
     viReadToFile: import("ffi-napi").ForeignFunction<number, [number, string | null, number, ref.Pointer<number>]>;
@@ -15,7 +17,6 @@ export declare const agVisa: {
     viEnableEvent: import("ffi-napi").ForeignFunction<number, [number, number, number, number]>;
     viDisableEvent: import("ffi-napi").ForeignFunction<number, [number, number, number]>;
     viWaitOnEvent: import("ffi-napi").ForeignFunction<number, [number, number, number, ref.Pointer<number>, ref.Pointer<number>]>;
-    viGetAttribute: import("ffi-napi").ForeignFunction<number, [number, number, ref.Pointer<number>]>;
 };
 export declare function visaQuery(visaAddress: string, queryString: string, callback: (status: number, returnBuffer: string) => void): void;
 export declare function visaAsyncQuery(visaAddress: string, queryString: string, callback: (status: number, returnBuffer: string) => void): void;

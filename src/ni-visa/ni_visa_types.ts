@@ -23,6 +23,8 @@ export const ViEvent = ViObject;
 
 export const ViPEvent = ref.refType(ViEvent);
 export const ViAttr = ViUInt32;
+export const ViAttrState = ViUInt32;
+export const ViPAttrState = ref.refType(ViUInt32);
 export const ViPSession = ref.refType(ViSession);
 export const ViString = ViPChar;
 export const ViConstString = ViString;

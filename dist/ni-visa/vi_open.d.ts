@@ -19,6 +19,7 @@ export declare enum ViOpenErrorCode {
     VI_ERROR_RSRC_LOCKED,
     VI_ERROR_RSRC_NFOUND,
     VI_ERROR_SERVER_CERT,
+    VI_ERROR_NCIC,
     VI_ERROR_TMO
 }
 export declare function viOpen(viSession: number, visa_resource: string, viAccessMode: number, timeout: number): Promise<{
