@@ -28,7 +28,7 @@ export const getResources = async ():Promise<ResourceList[]> => {
 
         // get the list of equipment seen by pc
         let findList = await ViFindRsrc(defaultRM.defaultRM, "?*")
-        console.log(findList)
+        // console.log(findList)
         viResources.push(findList.instrDesc)
         // loop through list of resource collection the resource name
         for (let i = 0; i < findList.retcnt -1; i++) {
