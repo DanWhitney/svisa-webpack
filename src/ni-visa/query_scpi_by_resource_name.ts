@@ -6,13 +6,13 @@ import { viRead } from "./vi_read"
 import { viWrite } from "./vi_write"
 
 
-type ViQueryStatus = {
+export type ViQueryStatus = {
     status: Number
     write: String
     read: String
 }
 
-const queryScpiByResourceName = async (ResourceName: string, Scpi: string):Promise<ViQueryStatus> => {
+export const queryScpiByResourceName = async (ResourceName: string, Scpi: string):Promise<ViQueryStatus> => {
     return new Promise<ViQueryStatus>(async (resolve,reject) => {
 
         const a = await viOpenDefaultRM()
