@@ -21,10 +21,10 @@ export const getResources = async ():Promise<ResourceList[]> => {
     try {
         // open default session
         let defaultRM = await viOpenDefaultRM()
-        console.log(defaultRM)
+        //console.log(defaultRM)
 
         let attr = await viGetAttribute(defaultRM.defaultRM,NiVisaConstants.VI_KTATTR_RETURN_ALL)
-        console.log(attr)
+        //console.log(attr)
 
         // get the list of equipment seen by pc
         let findList = await ViFindRsrc(defaultRM.defaultRM, "?*")
@@ -52,7 +52,7 @@ export const getResources = async ():Promise<ResourceList[]> => {
         resolve(viResources_with_present)
         
     } catch (err) {
-        console.log(err)
+        reject (err)
     }
     })
 }
