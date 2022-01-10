@@ -40,7 +40,7 @@ export const getResources = async ():Promise<ResourceList[]> => {
         for (let i = 0; i < viResources.length; i++) {
             // console.log(`attempting to open ${viResources[i]}`)
             // attempting to open  
-            let openAttempt = await viOpen(defaultRM.defaultRM,viResources[i],NiVisaConstants.VI_NULL,500)            
+            let openAttempt = await viOpen(defaultRM.defaultRM,viResources[i],NiVisaConstants.VI_NULL,NiVisaConstants.VI_NULL)            
             if (openAttempt.status == 0) {
                 viResources_with_present.push({resourceName: viResources[i], present: true})
                 viClose(openAttempt.session)
